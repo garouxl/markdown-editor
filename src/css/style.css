@@ -17,11 +17,14 @@
 
 html {
   font-size: 62.5%;
+  height: 90%;
 }
 
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
+  margin: 10px;
+  height: 100%;
 }
 
 body,
@@ -30,37 +33,25 @@ button {
   font-family: 'Ubuntu',Arial, Helvetica, sans-serif;
 }
 
-html,
-body,
-body > div {
-  height: 100%;
-  width: 100%;
-}
-
 .editor {
   display: flex;
-  height: 100%;
-  width: 100%;
+  justify-content: space-between;
 }
 
 form {
   display: flex;
   flex-direction: column;
-}
-
-form,
-.view {
-  min-width: 50%;
-  max-width: 50%;
+  align-items: center;
 }
 
 textarea {
   border: 8px solid #fc0;
+  border-radius: 6px;
   font-size: 18px;
   padding: 10px;
   resize: none;
-  width: 100%;
-  height: 100%;
+  width: 49%;
+  min-height: 75%;
 }
 
 textarea:focus {
@@ -69,20 +60,30 @@ textarea:focus {
 
 button {
   cursor: pointer;
-  background: linear-gradient(#ff0, #fa0);
-  border: 3px solid #fd0;
-  color: #333;
+  background: linear-gradient(#488dff, #4150ff);
+  border: 8px solid #fc0;
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+  color: #fff;
   font-size: 20px;
-  font-weight: 700;
-  height: 15%;
+  font-weight: 400;
+  padding: 10px;
   margin: 0;
   text-transform: uppercase;
   transition: all 0.15s ease-in-out;
-  width: 100%;
+  width: 90%;
+}
+
+button:hover {
+  background: linear-gradient(#4150ff, #488dff);
 }
 
 .view {
   background: #333;
+  border: 8px solid #666;
+  border-radius: 6px;
   color: #fff;
   padding: 10px;
+  min-height: 75%;
+  width: 49%;
 }
