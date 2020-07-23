@@ -23,8 +23,9 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  margin: 10px;
-  height: 100%;
+  min-height: 100vh;
+  display: grid;
+  align-items: start;
 }
 
 body,
@@ -35,7 +36,9 @@ button {
 
 .editor {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin: .5rem;
 }
 
 form {
@@ -50,8 +53,8 @@ textarea {
   font-size: 18px;
   padding: 10px;
   resize: none;
-  width: 49%;
-  min-height: 75%;
+  height: 95vh;
+  width: 49vw;
 }
 
 textarea:focus {
@@ -84,6 +87,6 @@ button:hover {
   border-radius: 6px;
   color: #fff;
   padding: 10px;
-  min-height: 75%;
-  width: 49%;
+  height: 95vh;
+  width: 49vw;
 }
