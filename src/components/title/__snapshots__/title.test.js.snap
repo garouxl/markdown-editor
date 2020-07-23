@@ -1,5 +1,0 @@
-exports[`Should Title match to snapshot 1`] = `
-<h1>
-  Título
-</h1>
-`;
