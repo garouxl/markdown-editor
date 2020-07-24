@@ -1,5 +1,8 @@
 @charset 'utf-8';
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+@import '~normalize.css';
+@import '~highlight.js/styles/dracula.css';
 
 *:focus {
   outline: none
@@ -47,17 +50,20 @@ form {
   align-items: center;
 }
 
-textarea {
-  border: 8px solid #fc0;
+.board {
+  background-color: #004F04;
+  border: 8px solid #ffb700;
   border-radius: 6px;
   font-size: 18px;
+  color: #fff;
+  font-family: 'Kalam', cursive;
   padding: 10px;
   resize: none;
   height: 95vh;
   width: 49vw;
 }
 
-textarea:focus {
+.board:focus {
   outline: 0 none;
 }
 
@@ -89,4 +95,27 @@ button:hover {
   padding: 10px;
   height: 95vh;
   width: 49vw;
+}
+
+.view * {
+  opacity: .9;
+  text-shadow: 0 0 0.3rem rgb(190 218 125 / 0.9);
+}
+
+.crt {
+  background-color: #050505;
+  background-image: linear-gradient( transparent, rgba(200, 200, 200, 0.1) 30%, rgba(200, 200, 200, 0.1) 70%, transparent ), repeating-linear-gradient(transparent, rgba(80, 80, 80, 0.2) 2px, transparent 4px);
+  background-size: 100% 18rem, 100% 100%;
+  animation: crt 10s infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes crt {
+  0% {
+    background-position: 0 0, 0 0;
+    animation-timing-function: linear;
+  }
+  100% {
+    background-position: 0 -18rem, 0 0;
+  }
 }

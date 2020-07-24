@@ -43,9 +43,12 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "highlight.js": "^9.10.0",
+    "marked": "^1.1.1",
     "normalize.css": "^8.0.1",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "webpack-bundle-analyzer": "^3.8.0"
   },
   "standard": {
     "globals": [

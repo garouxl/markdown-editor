@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 
 const MarkdownEditor = ({ value, handleChange, getMarkup }) => (
   <div className='editor'>
-    <textarea value={value} onChange={handleChange} autoFocus />
-    <div className='view' dangerouslySetInnerHTML={getMarkup()} />
+    <textarea className='board' value={value} onChange={handleChange} autoFocus />
+    <div className='view crt glow-text' dangerouslySetInnerHTML={getMarkup()} />
   </div>
 )
 
