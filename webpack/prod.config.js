@@ -13,11 +13,10 @@ module.exports = {
   output: common.output,
 
   plugins: [
-    new BundleAnalyzerPlugin(),
-
     new CleanPlugin(['dist'], {
       root: common.paths.root
     }),
+
     new ExtractTextPlugin({
       filename: '[name]-[hash].css'
     }),
@@ -30,17 +29,36 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'react-build',
+      chunks: ['main'],
       minChunks: ({ resource }) => (
-        /node_modules\/react(-dom)?/.test(resource)
+        /node_modules\/(react(-dom)?|fbjs)/.test(resource)
       )
     }),
 
-    new HtmlPlugin(common.htmlPluginConfig),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      chunks: ['main'],
+      minChunks: ({ resource }) => (
+        /node_modules/.test(resource)
+      )
+    }),
+
+    new HtmlPlugin(Object.assign({}, common.htmlPluginConfig, {
+      minify: { collapseWhitespace: true },
+      chunksSortMode: (chunk1, chunk2) => {
+        const order = ['react-build', 'vendor', 'main']
+        const left = order.indexOf(chunk1.names[0])
+        const right = order.indexOf(chunk2.names[0])
+        return left - right
+      }
+    })),
 
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true
     })
-  ],
+  ].concat(
+    process.env.ANALYZER ? new BundleAnalyzerPlugin() : []
+  ),
 
   module: {
     rules: [

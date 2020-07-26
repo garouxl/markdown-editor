@@ -18,7 +18,7 @@ class App extends Component {
     super()
 
     this.state = {
-      value: ''
+      value: 'escreva algum código usando notação markdown...'
     }
 
     this.handleChange = (e) => {
