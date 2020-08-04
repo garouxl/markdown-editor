@@ -7,7 +7,7 @@
     "lint:watch": "gulp",
     "lint:fix": "standard --fix",
     "build": "cross-env NODE_ENV=production webpack --progress --config webpack/prod.config -p",
-    "build:analyzer": "ANALYZER=true yarn build",
+    "build:analyzer": "cross-env ANALYZER=true yarn build",
     "storybook": "start-storybook -p 6006 -c storybook",
     "build-storybook": "cross-env NODE_ENV=production build-storybook -c storybook",
     "update-packages": "node scripts/update.js"
@@ -44,9 +44,13 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
     "highlight.js": "^9.10.0",
     "marked": "^1.1.1",
     "normalize.css": "^8.0.1",
+    "preact": "^7.2.1",
+    "preact-compat": "^3.14.3",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "webpack-bundle-analyzer": "^3.8.0"

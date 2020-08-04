@@ -119,3 +119,14 @@ button:hover {
     background-position: 0 -18rem, 0 0;
   }
 }
+
+@media (max-width: 800px) {
+  .board {
+    margin-bottom: 1rem;
+  }
+
+  .board,
+  .view {
+    width: 100%;
+  }
+}
