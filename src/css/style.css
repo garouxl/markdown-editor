@@ -63,6 +63,7 @@ button {
 }
 
 .button {
+  font-size: bold;
   cursor: pointer;
   background: linear-gradient(#488dff, #4150ff);
   border: 8px solid #ffb700;
@@ -74,12 +75,31 @@ button {
   padding: 10px;
   margin: 0;
   text-transform: uppercase;
-  transition: all 0.15s ease-in-out;
+  transition: .15s ease-in-out;
   margin-left: 8px;
+
 }
 
 .button:hover {
   background: linear-gradient(#4150ff, #488dff);
+}
+
+.save-message {
+  font-weight: bold;
+  border: 8px solid #ffb700;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 0;
+  padding: 10px;
+  margin: 0;
+  margin-left: 8px;
+  color: #fff;
+  background: #ce0f0f;
+  transition: .5s ease;
+  min-width: 13rem;
+}
+
+.saved {
+  background: #1375c5;
 }
 
 .board {
@@ -100,6 +120,7 @@ button {
   color: #fff;
   border-color: #666;
   word-break: break-word;
+  overflow: hidden;
 }
 
 .view * {
@@ -136,7 +157,7 @@ button {
 
   .board,
   .view {
-    width: 98vw;
+    width: 97.5vw;
   }
 }
 

@@ -22,12 +22,14 @@ class App extends Component {
     super()
 
     this.state = {
-      value: '### escreva algum código usando notação markdown...'
+      value: '### escreva algum código usando notação markdown...',
+      isSaving: false
     }
 
     this.handleChange = (e) => {
       this.setState({
-        value: e.target.value
+        value: e.target.value,
+        isSaving: true
       })
     }
 
@@ -37,6 +39,7 @@ class App extends Component {
 
     this.handleSave = () => {
       window.localStorage.setItem('md', this.state.value)
+      this.setState({ isSaving: false })
     }
   }
 
@@ -46,9 +49,8 @@ class App extends Component {
   }
 
   componentDidUpdate () {
-    // só dispara se o didUpdate ficar parado por 2 segundos
     clearInterval(this.timer)
-    this.timer = setTimeout(this.handleSave, 2000)
+    this.timer = setTimeout(() => this.handleSave(), 1000)
   }
 
   componentWillMount () {
@@ -59,9 +61,9 @@ class App extends Component {
     return (
       <MarkdownEditor
         value={this.state.value}
+        isSaving={this.state.isSaving}
         handleChange={this.handleChange}
         getMarkup={this.getMarkup}
-        handleSave={this.handleSave}
       />
     )
   }
