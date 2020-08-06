@@ -13,7 +13,7 @@ module.exports = {
   output: common.output,
 
   plugins: [
-    new CleanPlugin(['dist'], {
+    new CleanPlugin(['dist/*.js', 'dist/*.css', 'dist/*.html'], {
       root: common.paths.root
     }),
 
