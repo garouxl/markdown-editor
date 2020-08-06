@@ -4,6 +4,16 @@
 @import '~normalize.css';
 @import '~highlight.js/styles/dracula.css';
 
+@keyframes crt {
+  0% {
+    background-position: 0 0, 0 0;
+    animation-timing-function: linear;
+  }
+  100% {
+    background-position: 0 -18rem, 0 0;
+  }
+}
+
 *:focus {
   outline: none
 }
@@ -16,6 +26,10 @@
   box-sizing: inherit;
   outline: 0;
   backface-visibility: hidden;
+}
+
+::selection {
+  background-color: gradient
 }
 
 html {
@@ -37,42 +51,23 @@ button {
   font-family: 'Ubuntu',Arial, Helvetica, sans-serif;
 }
 
-.editor {
+.editor { margin: .5vh .5vw; }
+
+.header { justify-content: flex-start; }
+.main { justify-content: space-between; }
+
+.header,
+.main {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: .5rem;
+  flex-direction: row;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.board {
-  background-color: #004F04;
-  border: 8px solid #ffb700;
-  border-radius: 6px;
-  font-size: 18px;
-  color: #fff;
-  font-family: 'Kalam', cursive;
-  padding: 10px;
-  resize: none;
-  height: 95vh;
-  width: 49vw;
-}
-
-.board:focus {
-  outline: 0 none;
-}
-
-button {
+.button {
   cursor: pointer;
   background: linear-gradient(#488dff, #4150ff);
-  border: 8px solid #fc0;
-  border-top: 0;
-  border-radius: 0 0 6px 6px;
+  border: 8px solid #ffb700;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 0;
   color: #fff;
   font-size: 20px;
   font-weight: 400;
@@ -80,26 +75,45 @@ button {
   margin: 0;
   text-transform: uppercase;
   transition: all 0.15s ease-in-out;
-  width: 90%;
+  margin-left: 8px;
 }
 
-button:hover {
+.button:hover {
   background: linear-gradient(#4150ff, #488dff);
+}
+
+.board {
+  background-color: #004F04;
+  border-color: #ffb700;
+  font-size: 18px;
+  color: #fff;
+  font-family: 'Kalam', cursive;
+  resize: none;
+}
+
+.board:focus {
+  outline: 0 none;
 }
 
 .view {
   background: #333;
-  border: 8px solid #666;
-  border-radius: 6px;
   color: #fff;
-  padding: 10px;
-  height: 95vh;
-  width: 49vw;
+  border-color: #666;
 }
 
 .view * {
   opacity: .9;
   text-shadow: 0 0 0.3rem rgb(190 218 125 / 0.9);
+}
+
+.board ,
+.view {
+  border-width: 8px;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 10px;
+  height: 80vh;
+  width: 49vw;
 }
 
 .crt {
@@ -110,23 +124,19 @@ button:hover {
   animation-fill-mode: forwards;
 }
 
-@keyframes crt {
-  0% {
-    background-position: 0 0, 0 0;
-    animation-timing-function: linear;
-  }
-  100% {
-    background-position: 0 -18rem, 0 0;
-  }
-}
-
 @media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+
   .board {
     margin-bottom: 1rem;
   }
 
   .board,
   .view {
-    width: 100%;
+    width: 98vw;
   }
 }
+
+
