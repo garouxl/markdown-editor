@@ -99,6 +99,7 @@ button {
   background: #333;
   color: #fff;
   border-color: #666;
+  word-break: break-word;
 }
 
 .view * {

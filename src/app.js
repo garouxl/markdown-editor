@@ -45,6 +45,16 @@ class App extends Component {
     this.setState({ value })
   }
 
+  componentDidUpdate () {
+    // só dispara se o didUpdate ficar parado por 2 segundos
+    clearInterval(this.timer)
+    this.timer = setTimeout(this.handleSave, 2000)
+  }
+
+  componentWillMount () {
+    clearInterval(this.timer)
+  }
+
   render () {
     return (
       <MarkdownEditor
