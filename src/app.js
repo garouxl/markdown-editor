@@ -22,7 +22,8 @@ class App extends Component {
     super()
 
     this.state = {
-      value: '### escreva algum código usando notação markdown...',
+      value: '',
+      defaultValue: '### escreva algum código usando notação markdown...',
       isSaving: false
     }
 
@@ -33,19 +34,26 @@ class App extends Component {
       })
     }
 
-    this.getMarkup = () => {
-      return { __html: marked(this.state.value) }
+    this.handleSave = () => {
+      if (this.state.isSaving) {
+        window.localStorage.setItem('md', this.state.value)
+        this.setState({ isSaving: false })
+      }
     }
 
-    this.handleSave = () => {
-      window.localStorage.setItem('md', this.state.value)
-      this.setState({ isSaving: false })
+    this.handleRemove = () => {
+      window.localStorage.removeItem('md')
+      this.setState({ value: '' })
+    }
+
+    this.getMarkup = () => {
+      return { __html: marked(this.state.value) }
     }
   }
 
   componentDidMount () {
     const value = window.localStorage.getItem('md')
-    this.setState({ value })
+    this.setState({ value: value || '' })
   }
 
   componentDidUpdate () {
@@ -63,6 +71,7 @@ class App extends Component {
         value={this.state.value}
         isSaving={this.state.isSaving}
         handleChange={this.handleChange}
+        handleRemove={this.handleRemove}
         getMarkup={this.getMarkup}
       />
     )
