@@ -23,7 +23,7 @@ class App extends Component {
 
     this.state = {
       value: '',
-      defaultValue: '### escreva algo usando notação markdown...',
+      defaultValue: '### localStorage vazio, escreva algo usando notação markdown...',
       isSaving: false
     }
 
@@ -53,7 +53,7 @@ class App extends Component {
 
   componentDidMount () {
     const value = window.localStorage.getItem('md')
-    this.setState({ value: value || `${this.state.defaultValue} vc removeu o localStorage!` })
+    this.setState({ value: value || this.state.defaultValue })
   }
 
   componentDidUpdate () {
