@@ -1,8 +1,9 @@
 'use strict'
 
 import React, { Component } from 'react'
-import MarkdownEditor from 'components/markdown-editor'
 import marked from 'marked'
+
+import MarkdownEditor from 'components/markdown-editor'
 
 import './css/style.css'
 
@@ -27,6 +28,14 @@ class App extends Component {
       isSaving: false
     }
 
+    this.textareaRef = (node) => {
+      this.textarea = node
+    }
+
+    this.getMarkup = () => {
+      return { __html: marked(this.state.value) }
+    }
+
     this.handleChange = (e) => {
       this.setState({
         value: e.target.value,
@@ -46,8 +55,10 @@ class App extends Component {
       this.setState({ value: '' })
     }
 
-    this.getMarkup = () => {
-      return { __html: marked(this.state.value) }
+    this.handleCreate = () => {
+      console.log('criou arquivo fake :o)')
+      this.setState({ value: '' })
+      this.textarea.focus()
     }
   }
 
@@ -70,9 +81,11 @@ class App extends Component {
       <MarkdownEditor
         value={this.state.value}
         isSaving={this.state.isSaving}
+        getMarkup={this.getMarkup}
         handleChange={this.handleChange}
         handleRemove={this.handleRemove}
-        getMarkup={this.getMarkup}
+        handleCreate={this.handleCreate}
+        textareaRef={this.textareaRef}
       />
     )
   }

@@ -65,8 +65,8 @@ body {
   font-weight: bold;
   font-family: inherit;
   cursor: pointer;
-  text-shadow: 1px 1px 2px #000;
-  background: linear-gradient(#4863ff, #001bb6);
+  text-shadow: 1px 2px 3px #000;
+  background: linear-gradient(#5f77ff, #0f2bca);
   border: 8px solid #ffb700;
   border-radius: 6px 6px 0 0;
   border-bottom: 0;
@@ -78,23 +78,23 @@ body {
   margin-left: 8px;
   transform: translateY(16px);
   animation: hey 3s infinite;
-  animation-delay: 3s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 
-.button-remove {
-  background: linear-gradient(#ff4848, #b60000);
-}
-
-.button:hover,
-.button-remove:hover {
+.button:hover{
   animation: none;
   transform: translateY(0);
 }
 
-.button:active,
-.button-remove:active {
+.button:active {
   text-shadow: 0 0 0 #000;
+  background: linear-gradient(#0f2bca, #5f77ff);
+}
+
+.button-remove {
+  background: linear-gradient(#ff4848, #b60000);
+  animation-delay: 3s;
 }
 
 .button-remove:active {
@@ -103,11 +103,14 @@ body {
 
 @keyframes hey {
   0% { transform: translateY(16px) }
+  15% { transform: translateY(16px) }
+  20% { transform: translateY(12px) }
+  25% { transform: translateY(16px) }
   80% { transform: translateY(16px) }
-  85% { transform: translateY(2px) }
-  90% { transform: translateY(5px) }
-  95% { transform: translateY(3px) }
-  100% { transform: translateY(16px) }
+  85% { transform: translateY(2px) rotateZ(2deg) }
+  90% { transform: translateY(5px) rotateZ(-2deg) }
+  95% { transform: translateY(3px) rotateZ(2deg) }
+  100% { transform: translateY(16px) rotateZ(2deg)}
 }
 
 .save-message {
