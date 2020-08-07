@@ -5,6 +5,7 @@ const common = require('./common')
 
 const HtmlPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
+const { NamedModulesPlugin } = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
@@ -24,7 +25,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
-    new HtmlPlugin(common.htmlPluginConfig)
+    new HtmlPlugin(common.htmlPluginConfig),
+    new NamedModulesPlugin()
   ],
 
   module: {

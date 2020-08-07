@@ -1,0 +1,49 @@
+.button {
+  position: relative;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  text-shadow: 1px 2px 3px #000;
+  background: linear-gradient(#5f77ff, #0f2bca);
+  border: 8px solid #ffb700;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 0;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  transition: .15s ease-in-out;
+  margin-left: 8px;
+  transform: translateY(16px);
+  animation: hey 3s infinite;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.button:hover{
+  animation: none;
+  transform: translateY(0);
+}
+
+.button:active {
+  text-shadow: 0 0 0 #000;
+  background: linear-gradient(#0f2bca, #5f77ff);
+}
+
+.button-remove {
+  background: linear-gradient(#ff4848, #b60000);
+  animation-delay: 3s;
+}
+
+.button-remove:active {
+  background: linear-gradient( #b60000, #ff4848);
+}
+
+.button-create {
+  background: linear-gradient(#4897ff, #003ab6);
+  animation-delay: 3s;
+}
+
+.button-create:active {
+  background: linear-gradient(#003ab6,#4897ff);
+}

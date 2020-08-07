@@ -1,33 +1,35 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
+import Button from 'components/button'
 
 const Header = ({ isSaving, handleRemove, handleCreate }) => (
   <header className='header'>
     <p className={`save-message ${isSaving ? 'show' : ''}`}>
-      {isSaving = isSaving === null
-        ? ''
-        : isSaving
-          ? 'Salvando...'
-          : 'Salvo :)'
-      }
+      {isSaving !== null && (
+        <span>{isSaving ? 'Salvando...' : 'Salvo :)'}</span>
+      )}
     </p>
-    <button
-      className='button hey'
+    <Button
+      kind='button-create'
       onClick={handleCreate}
     >
       Criar arquivo
-    </button>
-    <button
-      className='button button-remove hey'
+    </Button>
+    <Button
+      kind='button-remove'
       onClick={handleRemove}
     >
       Remover
-    </button>
+    </Button>
+    <Button
+      onClick={handleRemove}
+    >
+      Outro
+    </Button>
   </header>
 )
 
 Header.propTypes = {
-  isSaving: PropTypes.func,
   handleRemove: PropTypes.func.isRequired,
   handleCreate: PropTypes.func.isRequired
 }
