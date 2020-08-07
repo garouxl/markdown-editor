@@ -3,10 +3,14 @@ import { PropTypes } from 'prop-types'
 
 const Header = ({ isSaving, handleRemove, handleCreate }) => (
   <header className='header'>
-    <p className={`save-message ${isSaving ? '' : 'saved'}`}>
-      {isSaving ? 'Salvando...' : 'Salvo :)'}
+    <p className={`save-message ${isSaving ? 'show' : ''}`}>
+      {isSaving = isSaving === null
+        ? ''
+        : isSaving
+          ? 'Salvando...'
+          : 'Salvo :)'
+      }
     </p>
-
     <button
       className='button hey'
       onClick={handleCreate}
@@ -23,7 +27,7 @@ const Header = ({ isSaving, handleRemove, handleCreate }) => (
 )
 
 Header.propTypes = {
-  isSaving: PropTypes.bool.isRequired,
+  isSaving: PropTypes.func,
   handleRemove: PropTypes.func.isRequired,
   handleCreate: PropTypes.func.isRequired
 }

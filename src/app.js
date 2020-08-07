@@ -25,7 +25,7 @@ class App extends Component {
     this.state = {
       value: '',
       defaultValue: '### localStorage vazio, escreva algo usando notação markdown...',
-      isSaving: false
+      isSaving: null
     }
 
     this.textareaRef = (node) => {
