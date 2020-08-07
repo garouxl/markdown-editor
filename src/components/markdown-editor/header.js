@@ -21,11 +21,6 @@ const Header = ({ isSaving, handleRemove, handleCreate }) => (
     >
       Remover
     </Button>
-    <Button
-      onClick={handleRemove}
-    >
-      Outro
-    </Button>
   </header>
 )
 
