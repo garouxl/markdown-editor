@@ -1,3 +1,15 @@
+@keyframes hey {
+  0% { transform: translateY(16px); }
+  15% { transform: translateY(16px); }
+  20% { transform: translateY(12px); }
+  25% { transform: translateY(16px); }
+  80% { transform: translateY(16px); }
+  85% { transform: translateY(2px) rotateZ(2deg); }
+  90% { transform: translateY(5px) rotateZ(-2deg); }
+  95% { transform: translateY(3px) rotateZ(2deg); }
+  100% { transform: translateY(16px) rotateZ(2deg); }
+}
+
 .button {
   position: relative;
   font-weight: bold;
@@ -41,7 +53,7 @@
 
 .button-create {
   background: linear-gradient(#4897ff, #003ab6);
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 
 .button-create:active {

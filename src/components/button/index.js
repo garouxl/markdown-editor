@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types'
 import './style.css'
 
 const Button = ({ onClick, children, kind }) => (
-  <button onClick={onClick} className={`button ${kind} hey`}>
+  <button onClick={onClick} className={`button ${kind}`}>
     {children}
   </button>
 )

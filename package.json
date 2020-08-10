@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --progress --config webpack/prod.config -p",
     "build:analyzer": "cross-env ANALYZER=true yarn build",
     "storybook": "start-storybook -p 6006 -c storybook",
-    "build-storybook": "cross-env NODE_ENV=production BABEL_ENV=production build-storybook -c storybook",
+    "storybook:build": "cross-env NODE_ENV=production BABEL_ENV=production build-storybook -c storybook",
     "update-packages": "node scripts/update.js"
   },
   "devDependencies": {

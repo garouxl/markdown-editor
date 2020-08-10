@@ -14,25 +14,6 @@
   }
 }
 
-@keyframes hey {
-  0% { transform: translateY(16px); }
-  15% { transform: translateY(16px); }
-  20% { transform: translateY(12px); }
-  25% { transform: translateY(16px); }
-  80% { transform: translateY(16px); }
-  85% { transform: translateY(2px) rotateZ(2deg); }
-  90% { transform: translateY(5px) rotateZ(-2deg); }
-  95% { transform: translateY(3px) rotateZ(2deg); }
-  100% { transform: translateY(16px) rotateZ(2deg); }
-}
-
-@keyframes hy {
-  0% { transform: translateY(38px); }
-  5% { transform: translateY(34px); }
-  10% { transform: translateY(38px); }
-  100% { transform: translateY(38px);}
-}
-
 *:focus {
   outline: none
 }
@@ -77,30 +58,6 @@ body {
 .main {
   display: flex;
   flex-direction: row;
-}
-
-.save-message {
-  font-weight: bold;
-  border: 8px solid #ffb700;
-  border-radius: 6px 6px 0 0;
-  border-bottom: 0;
-  padding: 10px;
-  margin: 0;
-  margin-left: 8px;
-  color: #fff;
-  background: linear-gradient( #1f7904, #50d82e);
-  transition: .5s ease;
-  min-width: 13rem;
-  transform: translateY(38px);
-  transition: .15s 1s cubic-bezier(.25, 1, .30, 1);
-  animation: hy 4s infinite;
-  animation-delay: 1.5s;
-  animation-fill-mode: forwards;
-}
-
-.show {
-  transform: translateY(0);
-  animation: none;
 }
 
 .board {

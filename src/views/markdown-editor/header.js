@@ -1,14 +1,11 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import Button from 'components/button'
+import SaveMessage from 'components/save-message'
 
 const Header = ({ isSaving, handleRemove, handleCreate }) => (
   <header className='header'>
-    <p className={`save-message ${isSaving ? 'show' : ''}`}>
-      {isSaving !== null && (
-        <span>{isSaving ? 'Salvando...' : 'Salvo :)'}</span>
-      )}
-    </p>
+    <SaveMessage isSaving={isSaving} />
     <Button
       kind='button-create'
       onClick={handleCreate}

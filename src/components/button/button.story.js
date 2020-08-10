@@ -24,20 +24,20 @@ stories.addDecorator((story) => (
 
 ))
 
-stories.add('Button Padrão', () => (
+stories.add('Button default', () => (
   <Button onClick={action('ação padrão')}>
     padrão
   </Button>
 ))
 
-stories.add('Button Criar', () => (
-  <Button onClick={action('criou arquivo')} kind='button-create'>
+stories.add('Button create', () => (
+  <Button onClick={action('created file')} kind='button-create'>
     criar
   </Button>
 ))
 
-stories.add('Button Remover', () => (
-  <Button onClick={action('removeu arquivo')} kind='button-remove'>
+stories.add('Button remove', () => (
+  <Button onClick={action('removed file')} kind='button-remove'>
     remover
   </Button>
 ))
