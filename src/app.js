@@ -1,10 +1,9 @@
 'use strict'
 
 import React, { Component } from 'react'
+import { v4 } from 'uuid'
 import marked from 'marked'
-
 import MarkdownEditor from 'views/markdown-editor'
-
 import './css/style.css'
 
 import('highlight.js').then((hljs) => {
@@ -22,10 +21,16 @@ class App extends Component {
   constructor () {
     super()
 
-    this.state = {
+    this.clearState = () => ({
+      title: '',
       value: '',
-      defaultValue: '### localStorage vazio, escreva algo usando notação markdown...',
-      isSaving: null
+      id: v4()
+    })
+
+    this.state = {
+      ...this.clearState(),
+      isSaving: null,
+      files: {}
     }
 
     this.textareaRef = (node) => {
@@ -36,35 +41,67 @@ class App extends Component {
       return { __html: marked(this.state.value) }
     }
 
-    this.handleChange = (e) => {
+    this.handleChange = (field) => (e) => {
       this.setState({
-        value: e.target.value,
+        [field]: e.target.value,
         isSaving: true
       })
     }
 
     this.handleSave = () => {
       if (this.state.isSaving) {
-        window.localStorage.setItem('md', this.state.value)
-        this.setState({ isSaving: false })
+        const files = {
+          ...this.state.files,
+          [this.state.id]: {
+            title: this.state.title.toLowerCase() || 'sem título',
+            content: this.state.value
+          }
+        }
+        window.localStorage.setItem('markdown-editor', JSON.stringify(files))
+        this.setState({
+          isSaving: false,
+          files
+        })
       }
     }
 
+    this.createNew = () => {
+      this.setState(this.clearState())
+      this.textarea.focus()
+    }
+
     this.handleRemove = () => {
-      window.localStorage.removeItem('md')
-      this.setState({ value: '' })
+      /* let files = Object.keys(this.state.files).reduce((acc, fileId) => {
+        return fileId === this.state.id
+          ? acc
+          : {
+            ...acc,
+            [fileId]: this.state.files[fileId]
+          }
+      }, {}) */
+      // eslint-disable-next-line no-unused-vars
+      const { [this.state.id]: id, ...files } = this.state.files
+      window.localStorage.setItem('markdown-editor', JSON.stringify(files))
+      this.setState({ files })
+      this.createNew()
     }
 
     this.handleCreate = () => {
-      console.log('criou arquivo fake :o)')
-      this.setState({ value: '' })
-      this.textarea.focus()
+      this.createNew()
+    }
+
+    this.handleOpenFile = (fileId) => () => {
+      this.setState({
+        title: this.state.files[fileId].title,
+        value: this.state.files[fileId].content,
+        id: fileId
+      })
     }
   }
 
   componentDidMount () {
-    const value = window.localStorage.getItem('md')
-    this.setState({ value: value || this.state.defaultValue })
+    const files = JSON.parse(window.localStorage.getItem('markdown-editor'))
+    this.setState({ files })
   }
 
   componentDidUpdate () {
@@ -82,10 +119,13 @@ class App extends Component {
         value={this.state.value}
         isSaving={this.state.isSaving}
         getMarkup={this.getMarkup}
-        handleChange={this.handleChange}
-        handleRemove={this.handleRemove}
-        handleCreate={this.handleCreate}
+        files={this.state.files}
         textareaRef={this.textareaRef}
+        title={this.state.title}
+        onHandleOpenFile={this.handleOpenFile}
+        onHandleChange={this.handleChange}
+        onHandleRemove={this.handleRemove}
+        onHandleCreate={this.handleCreate}
       />
     )
   }

@@ -61,6 +61,10 @@ module.exports = {
     }
   },
 
+  module: {
+    noParse: /\.min\.js$/
+  },
+
   urlLoader: {
     test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
     include: paths.src,

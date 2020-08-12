@@ -29,7 +29,7 @@ stories.add('SaveMessage isSaving == null', () => (
 ))
 
 stories.add('SaveMessage isSaving == true', () => (
-  <SaveMessage isSaving={true} />
+  <SaveMessage isSaving />
 ))
 
 stories.add('SaveMessage isSaving == false', () => (

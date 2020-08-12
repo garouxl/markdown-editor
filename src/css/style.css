@@ -49,7 +49,7 @@ body {
   font-family: 'Ubuntu',Arial, Helvetica, sans-serif;
 }
 
-.editor { margin: .5vh .5vw; }
+.editor { margin: 0 .5vw .5vh .5vw; }
 
 .header { justify-content: flex-start; }
 .main { justify-content: space-between; }
@@ -94,6 +94,7 @@ body {
   border-radius: 6px;
   padding: 10px;
   height: 80vh;
+  transition: width .5s cubic-bezier(1, 0.1, 0, 2.1);
 
 }
 
@@ -125,7 +126,7 @@ body {
 
   .board,
   .view {
-    width: 97.5vw;
+    width: 97.5vw!important;
   }
 }
 

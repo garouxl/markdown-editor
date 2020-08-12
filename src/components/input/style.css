@@ -1,0 +1,26 @@
+.file-title {
+  text-shadow: 1px 2px 3px #000;
+  background: linear-gradient(90deg, #f1c2ff, #d245ee);
+  border: 8px solid #ffb700;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 0;
+  color: #fff;
+  font-weight: bold;
+  padding: 0px 8px 12px;
+  margin: 0 0 0 8px;
+  transition: .4s cubic-bezier(1, 0.1, 0, 2.1);
+  transform: translateY(20px);
+  width: 15rem;
+  line-height: 0;
+  height: 4.5rem;
+}
+
+.file-title:not(:placeholder-shown),
+.file-title:focus {
+  transform: translateY(14px);
+}
+
+.file-title::placeholder {
+  color: #fff;
+  opacity: .4;
+}

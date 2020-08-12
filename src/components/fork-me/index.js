@@ -4,6 +4,7 @@ const Forkme = () => (
   <a
     href='https://github.com/garouxl/markdown-editor'
     target='_blank'
+    rel='noopener noreferrer'
     alt='Fork me on GitHub'
     title='Fork me on GitHub'
     style={{
