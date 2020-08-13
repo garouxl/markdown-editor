@@ -9,7 +9,7 @@
   padding: 0px 8px 12px;
   margin: 0 0 0 8px;
   transition: .4s cubic-bezier(1, 0.1, 0, 2.1);
-  transform: translateY(20px);
+  transform: translateY(2rem);
   width: 15rem;
   line-height: 0;
   height: 4.5rem;
@@ -17,10 +17,21 @@
 
 .file-title:not(:placeholder-shown),
 .file-title:focus {
-  transform: translateY(14px);
+  transform: translateY(1.4rem);
 }
 
 .file-title::placeholder {
   color: #fff;
   opacity: .4;
+}
+
+@media (max-width: 800px) {
+  .file-title {
+    transform: translateY(2rem);
+    width: 12rem;
+  }
+
+  .file-title:not(:placeholder-shown), .file-title:focus {
+    transform: translateY(1.2rem);
+  }
 }

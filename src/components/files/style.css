@@ -45,7 +45,7 @@
 }
 
 .files-title,
-.files-list li:not(:last-child) {
+.files-list li {
   margin-bottom: .5rem
 }
 
@@ -99,7 +99,8 @@
   .files-list {
     position: relative;
     left: 0;
-    width: 87.5vw;
+    width: 80%;
+    margin-left: 0;
   }
 
   .files-list ul {
@@ -110,6 +111,5 @@
 
   .files-list ul li:not(:last-child) {
     margin-right: .5rem;
-    margin-bottom: 0;
   }
 }
