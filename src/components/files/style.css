@@ -17,7 +17,8 @@
 
 .files-list {
   position: fixed;
-  left: 44.8vw;
+  left: 50%;
+  margin-left: -7rem;
   width: 14rem;
   color: #fff;
   font-weight: bold;
@@ -52,13 +53,12 @@
   cursor: pointer;
   position: relative;
   font-weight: bold;
-  font-family: inherit;
+  font-size: 90%;
   text-shadow: 1px 2px 2px #000;
   background: linear-gradient(#f1c2ff 25%, #d245ee);
   border: 4px solid #ffb700;
   border-radius: 6px;
   color: #fff;
-  font-weight: bold;
   padding: .3rem .5rem .5rem;
   margin: 0;
   width: 100%;

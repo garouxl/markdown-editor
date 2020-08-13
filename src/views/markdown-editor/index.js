@@ -6,30 +6,29 @@ import Header from './header'
 import Forkme from '../../components/fork-me'
 import Files from '../../components/files'
 
-const MarkdownEditor = ({ value, getMarkup, onHandleChange, textareaRef, files, onHandleOpenFile, ...props }) => (
+const MarkdownEditor = ({ value, getMarkup, onHandleChange, textareaRef, files, onHandleOpenFile, hasFiles, ...props }) => (
   <section className='editor'>
     <Forkme />
-    <Files files={files} onHandleOpenFile={onHandleOpenFile} />
+    <Files files={files} hasFiles={hasFiles} onHandleOpenFile={onHandleOpenFile} />
     <Header {...props} onHandleChange={onHandleChange} />
     <main className='main'>
       <textarea
-        className='board'
+        className={`board ${hasFiles ? 'has-files' : ''}`}
         value={value}
         onChange={onHandleChange('value')}
         autoFocus
         ref={textareaRef}
-        style={Object.keys(files).length ? { width: '43.8vw' } : {}}
       />
       <article
-        className='view crt glow-text'
+        className={`view ${hasFiles ? 'has-files' : ''} crt glow-text`}
         dangerouslySetInnerHTML={getMarkup()}
-        style={Object.keys(files).length ? { width: '43.8vw' } : {}}
       />
     </main>
   </section>
 )
 
 MarkdownEditor.propTypes = {
+  hasFiles: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
   onHandleChange: PropTypes.func.isRequired,
   getMarkup: PropTypes.func.isRequired,

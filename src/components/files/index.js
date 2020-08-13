@@ -2,11 +2,11 @@ import React from 'react'
 
 import './style.css'
 
-const Files = ({ files, onHandleOpenFile }) => {
-  return (Boolean(Object.keys(files).length) && (
+const Files = ({ files, hasFiles, onHandleOpenFile }) => {
+  return (hasFiles && (
     <div className='files-list'>
       <p className='files-title'>
-        {Object.keys(files).length === 1 ? 'Arquivo:' : 'Arquivos:'}
+        Lista de arquivo:
       </p>
       <ul>
         {Object.keys(files).map((fileId) => (

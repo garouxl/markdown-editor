@@ -20,7 +20,7 @@ import('highlight.js').then((hljs) => {
 class App extends Component {
   constructor () {
     super()
-    window.localStorage.setItem('markdown-editor', JSON.stringify({}))
+
     this.clearState = () => ({
       title: '',
       value: '',
@@ -59,6 +59,7 @@ class App extends Component {
         }
         window.localStorage.setItem('markdown-editor', JSON.stringify(files))
         this.setState({
+          hasFiles: true,
           isSaving: false,
           files
         })
@@ -100,7 +101,7 @@ class App extends Component {
   }
 
   componentDidMount () {
-    const files = JSON.parse(window.localStorage.getItem('markdown-editor'))
+    const files = JSON.parse(window.localStorage.getItem('markdown-editor')) || {}
     this.setState({ files })
   }
 
@@ -120,6 +121,7 @@ class App extends Component {
         isSaving={this.state.isSaving}
         getMarkup={this.getMarkup}
         files={this.state.files}
+        hasFiles={Boolean(Object.keys(this.state.files).length)}
         textareaRef={this.textareaRef}
         title={this.state.title}
         onHandleOpenFile={this.handleOpenFile}
