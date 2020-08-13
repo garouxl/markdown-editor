@@ -24,7 +24,8 @@
   font-weight: bold;
   padding: 1rem;
   margin: 0;
-  transition: .15s ease-in-out;
+  opacity: 1;
+  transition: .15s .4s ease-in-out;
   margin-left: 8px;
   transform: translateY(16px);
   animation: hey 3s infinite;
@@ -69,14 +70,12 @@
   .button:hover{
     animation: none;
     transform: translateY(16px);
+    margin-left: 2rem;
   }
-
-  .button-create { margin-left: 1rem; }
-  .button-remove { margin-left: 3rem; }
 
   .show ~ .button-create,
   .show ~ .button-remove {
     animation: none;
-    transform: translateY(4.5rem)!important;
+    opacity: 0;
   }
 }
