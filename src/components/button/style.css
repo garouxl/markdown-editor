@@ -46,6 +46,8 @@
 .button-remove {
   background: linear-gradient(#ff4848, #b60000);
   animation-delay: 3s;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .button-remove:active {
@@ -59,6 +61,11 @@
 
 .button-create:active {
   background: linear-gradient(#003ab6,#4897ff);
+}
+
+.show-me {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 800px) {

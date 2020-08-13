@@ -18,7 +18,7 @@ Button.getDefaultProps = {
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  kind: PropTypes.oneOf(['button-create', 'button-remove'])
+  kind: PropTypes.oneOf(['button-create', 'button-remove ', 'button-remove show-me'])
 }
 
 export default Button

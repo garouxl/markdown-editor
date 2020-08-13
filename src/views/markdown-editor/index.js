@@ -10,7 +10,7 @@ const MarkdownEditor = ({ value, getMarkup, onHandleChange, textareaRef, files, 
   <section className='editor'>
     <Forkme />
     <Files files={files} hasFiles={hasFiles} onHandleOpenFile={onHandleOpenFile} />
-    <Header {...props} onHandleChange={onHandleChange} />
+    <Header {...props} hasFiles={hasFiles} onHandleChange={onHandleChange} />
     <main className='main'>
       <textarea
         className={`board ${hasFiles ? 'has-files' : ''}`}
