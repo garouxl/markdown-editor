@@ -20,7 +20,7 @@ import('highlight.js').then((hljs) => {
 class App extends Component {
   constructor () {
     super()
-
+    window.localStorage.setItem('markdown-editor', JSON.stringify({}))
     this.clearState = () => ({
       title: '',
       value: '',
