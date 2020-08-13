@@ -3,8 +3,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from './header'
-import Forkme from 'components/fork-me'
-import Files from 'components/files'
+import Forkme from '../../components/fork-me'
+import Files from '../../components/files'
 
 const MarkdownEditor = ({ value, getMarkup, onHandleChange, textareaRef, files, onHandleOpenFile, ...props }) => (
   <section className='editor'>

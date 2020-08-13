@@ -1,8 +1,8 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import Button from 'components/button'
-import SaveMessage from 'components/save-message'
-import Input from 'components/input'
+import Button from '../../components/button'
+import SaveMessage from '../../components/save-message'
+import Input from '../../components/input'
 
 const Header = ({ isSaving, title, onHandleRemove, onHandleCreate, onHandleChange }) => (
   <header className='header'>

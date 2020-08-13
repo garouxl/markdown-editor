@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { v4 } from 'uuid'
 import marked from 'marked'
-import MarkdownEditor from 'views/markdown-editor'
+import MarkdownEditor from './views/markdown-editor'
 import './css/style.css'
 
 import('highlight.js').then((hljs) => {
