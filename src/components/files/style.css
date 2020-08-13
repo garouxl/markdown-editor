@@ -44,6 +44,10 @@
   display: flex;
 }
 
+.files-title {
+  font-size: 90%;
+}
+
 .files-title,
 .files-list li {
   margin-bottom: .5rem
@@ -101,6 +105,9 @@
     left: 0;
     width: 80%;
     margin-left: 0;
+  }
+  .files-title {
+    font-size: 100%;
   }
 
   .files-list ul {
