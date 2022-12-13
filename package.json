@@ -46,7 +46,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "compression": "^1.6.2",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "highlight.js": "^9.10.0",
     "marked": "^1.1.1",
     "node-uuid": "^1.4.8",
